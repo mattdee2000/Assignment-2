@@ -1,0 +1,44 @@
+<%include partials/header.ejs %>
+<body>
+  <h1><%= title %></h1>
+  <br>
+  <div>
+    <a href="/contacts/add" class="btn btn-primary align-self-end" role="button">
+        <i class="fas fa-plus-circle"></i> 
+        Add a new Item
+    </a>                
+</div>
+  <table class="table table-bordered table-striped table-hover">
+      <!-- Header Row-->
+      <tr>
+          <th class="text-center">Contact Name</th>
+          <th class="text-center">Contact Number</th>
+          <th class="text-center">Email Address</th>
+          <th class="text-center" colspan="2">Actions</th>
+      </tr>
+
+      <% for(let count = 0; count < ContactsList.length; count++) { %>
+        <tr>
+            <td class="text-center"><%= ContactsList[count].contactName %></td>
+            <td class="text-center"><%= ContactsList[count].contactNumber %></td>
+            <td class="text-center"><%= ContactsList[count].emailAddress %></td>
+            <td class="text-center">
+                <a href="/contacts/edit/<%= ContactsList[count]._id %>" class="btn btn-primary btn-sm">
+                <i class="fas fa-pencil-alt"></i></a>
+            </td>
+            <td class="text-center">
+                <a href="/contacts/delete/<%= ContactsList[count]._id %>" class="btn btn-danger btn-sm">
+                <i class="fas fa-trash-alt"></i></a>
+            </td>
+        </tr>
+    <% } %>
+  
+
+
+
+
+
+</table>
+</body>
+<!-- Using partials for footer -->
+<%include partials/footer.ejs %>

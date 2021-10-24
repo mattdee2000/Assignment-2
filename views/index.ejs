@@ -1,0 +1,25 @@
+<!-- Using partials for header -->
+
+<%include partials/header.ejs %>
+
+  <h1><%= title %></h1>
+
+  <p>Welcome to <%= title %></p>
+
+    <!-- Using partials to implement page content -->
+    <% if (title == "Home") { %>
+      <%include partials/home%>
+    <%} else if (title == "About") { %>
+      <%include partials/about%>
+    <%} else if (title == "Projects") { %>
+      <%include partials/projects%>
+    <%} else if (title == "Services") { %>
+      <%include partials/services%>
+    <%} else if (title == "Contact") { %>
+      <%include partials/contact%>                    
+      <%} else { %>
+        <p></p>
+        <%} %>
+
+  <!-- Using partials for footer -->
+  <%include partials/footer.ejs %>
